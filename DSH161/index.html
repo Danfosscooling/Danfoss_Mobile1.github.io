@@ -31,13 +31,13 @@
                   ios-src="Model/DSH161.usdz"
                   alt=""
                   shadow-intensity="0"
-				 
+				 id="viewer-singleton"
                   camera-controls
-				  camera-orbit="-85deg 60deg 12m"
+				  camera-orbit="130deg 75deg 12m"
 				  safari chrome
                    ar
 				   ar-scale=""
-				   exposure="1"
+				    
 				  poster="Images/Poster.png">
     </model-viewer>
     <section class="attribution">
@@ -54,9 +54,26 @@
   <script nomodule
       src="js/model-viewer-legacy.js">
   </script>
-  
+  <script>
+        (() => {
+          var checkExist = setInterval(function() {
+           if (document.querySelector("#viewer-singleton") != null) {
+              modelViewer = document.querySelector("#viewer-singleton");
+              modelViewer.activateAR();
+              clearInterval(checkExist);
+           }
+        }, 100);
+        })();
+    </script>
   
 
 </body>
 </html>
     
+  
+  
+  
+  
+  
+  
+  
